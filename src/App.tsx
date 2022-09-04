@@ -11,18 +11,15 @@ function App() {
   const [loginProp, resetLogin] = useInput("")
   const [loginId, setLoginId] = useState("shunta0213")
   const [repo, setRepo] = useState("gittest")
+
+  // if (!loginId) return (<UserIdForm loginProp={loginProp} resetLogin={resetLogin} setLoginId={setLoginId} />)
   return (
     <>
       <UserIdForm loginProp={loginProp} resetLogin={resetLogin} setLoginId={setLoginId} />
-      <GithubUser login={loginId} />
-      <UserRepositories
-        login={loginId}
-        onSelect={setRepo}
-      />
-      <RepoReadme
-        repo={repo}
-        login={loginId}
-      />
+      {loginId && <GithubUser login={loginId} />}
+      {loginId && <UserRepositories login={loginId} onSelect={setRepo} />}
+      {(loginId && repo) && <RepoReadme repo={repo} login={loginId} />
+      }
     </>
   );
 }
