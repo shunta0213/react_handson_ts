@@ -1,5 +1,5 @@
 import React from "react";
-import SubmitForm from "./molecules/form";
+import SubmitForm from "./atoms/form";
 import { inputProps, resetValue } from "../hooks/useInput";
 
 const UserIdForm = ({
