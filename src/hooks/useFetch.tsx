@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useFetch = <DataType,>(uri: string) => {
     const [data, setData] = useState<DataType>()
+    // HACK:object?
     const [error, setError] = useState<object>()
     const [isLoading, setIsLoading] = useState(true)
 
